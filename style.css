@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Roboto:wght@300;400;500;700;900&family=Square+Peg&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@300;400;500;700;900&display=swap');
+:root{
+    --button:#8CB560;
+    --yellow:#FEBD00;
+    --green : #62ae2f;
+}
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    transition: .2s;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+
+}
+html{
+    font-size: 62.5%;
+    
+}
+
+header{
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 7%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    position: fixed;
+    left: 0;
+    right: 0;
+
+}
+.logo h1{
+    color: var(--green);
+    margin-right: 5px;
+    font-size: 25px;
+}
+.logo i{
+    margin-right: 10px;
+}
+.navbar a{
+    font-size: 18px;
+    color: black;
+    padding: 1rem;
+    margin-left: 5px;
+    position: relative;
+}
+.navbar a::after{
+    content: "";
+    background-color: #62ae2f;
+    left: 0;
+    position: absolute;
+    width: 0;
+    height: 3px;
+    top: 100%;
+    transition: 0.5s;
+}
+.navbar a:hover::after{
+    width: 100%;
+}
+
+
+
+.icons{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.icons div{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.icons #menu-bar{
+    color: var(--green);
+    font-size: 2rem;
+    display: none;
+}
+.icons #cart{
+    color: var(--green);
+    font-size: 3rem;
+}
+.icons:hover{
+    cursor: pointer;
+    
+}
+
+
+
+ /*home section css coding*/
+ section{
+    padding: 3rem 15%;
+ }
+
+
+ .home {
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/blur\ bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 17rem;
+    padding-bottom: 6.5rem;   
+ }
+
+
+
+
+
+ .home .content{
+    text-align: center;
+    width: 300rem; 
+ }
+
+
+
+ .home .content h3{
+    color: white;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 10px var(--green);
+ }
+
+ .home .content h3 span{
+    color: rgb(0, 128, 0);
+ }
+
+
+
+.home .content p{
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 10px rgb(255, 255, 255);
+    padding: 1rem 0;
+    line-height: 1.8;
+} /*home section css coding*/s
+
+
+
+
+
+/*Our recipies css coding*/
+
+.heading{
+    text-align: center;
+    padding: 2rem 0;
+    font-weight: bold;
+    font-size: 5rem;
+    color: var(--black);
+    padding-bottom: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box-container{
+    display: flex;
+    text-align: center;
+    display: grid;
+    columns: repeat(auto-fit, minmax(30rem, .5fr));
+    gap: 1.5rem;
+    padding: 1rem 1rem;
+    padding-bottom: 15px;
+}
+
+.box{
+    padding-bottom: 2rem;
+    background: #ededed;
+    text-align: center;
+    /* box-shadow: var(--box-shadow); */
+}
+.box img{
+    width:300px;
+    height:300px;
+}
+
+ .box h3{
+    font-size: 2.5rem;
+    line-height: 1.5;
+    color: var(--black);
+ }
+
+ .box p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--Light-color);
+ }
+
+/*Our recipies css coding*/
+
+
+
+
+
+
+
+
+
+/* footer  */
+
+.container{
+    max-width: 1170px;
+    margin:auto;
+   }
+   .row{
+    display: flex;
+    flex-wrap: wrap;
+   }
+   ul{
+    list-style: none;
+   }
+   .footer{
+    background-color: #24262b;
+    padding: 70px 0;
+    margin-top:50px;
+   }
+   .footer-col{
+   width: 25%;
+   padding: 0 15px;
+   }
+   .footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+   }
+   .footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+   }
+   .footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+   }
+   .footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+   }
+   .footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+   }
+   .footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+   }
+   .footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+   }
+   
+   /*responsive*/
+   @media(max-width: 767px){
+   .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+   }
+   }
+   @media(max-width: 574px){
+   .footer-col{
+    width: 100%;
+   }
+}
+   
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--green); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(red, yellow);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+
+@media (max-width:768px) {
+    
+    header{
+        padding: 2rem;
+    }
+    html{
+        font-size: 55%;
+    }
+
+    .icons #menu-bar{
+        display: initial;
+    }
+
+    header .navbar{
+        position: absolute;
+        top:100%; left: 0; right:0;
+        background: #f7f7f7;
+        border-top: .1rem solid rgba(0,0,0,.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        height: 100vh;
+      }
+      header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+     
+      header .navbar a{
+        margin: 1.5rem;
+        padding:1.5rem;
+        display: block;
+        border:.2rem solid rgba(0,0,0,.1);
+        border-left:.5rem solid var(--red);
+        background:var(--green);
+        color: white;
+      }
+
+
+
+}

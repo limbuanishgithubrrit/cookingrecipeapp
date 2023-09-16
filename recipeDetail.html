@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       
+    header{
+    top:0;
+    margin: 0;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 7%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    position: fixed;
+    left: 0;
+    right: 0;
+  
+     
+}
+
+/* Style the recipe details container  for description form*/
+/* Style the container section */
+.recipe-details {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the recipe title */
+#displayRecipeTitle {
+  font-size: 10px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Style the ingredients section */
+#displayIngredients {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 10px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Style individual ingredient items */
+#displayIngredients li {
+  margin-bottom: 6px;
+}
+
+/* Style the instructions section */
+#displayInstructions {
+  font-size: 10px;
+  color: #444;
+  margin-top: 20px;
+}
+
+/* Style the recipe image */
+#displayRecipeImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the Edit Recipe and Delete Recipe buttons */
+#editRecipe,
+#deleteRecipe {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 15px;
+  transition: background-color 0.3s ease;
+}
+
+#editRecipe:hover,
+#deleteRecipe:hover {
+  background-color: #0056b3;
+}
+
+
+ /* Style the container section of edit form */
+.edit-form {
+  max-width: 400px;
+  margin: 120px 50px 50px 50px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  
+}
+
+/* Style the form title */
+h2 {
+  color: #333;
+  text-align: center;
+}
+
+/* Style labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Style input fields */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Style the file input and its preview image */
+input[type="file"] {
+  margin-bottom: 15px;
+}
+
+#editRecipeImagePreview {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Style the editable ingredient list */
+ul[contenteditable="true"] {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul[contenteditable="true"] li {
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Style form validation error message */
+input:invalid,
+textarea:invalid {
+  border-color: #ff4a4a;
+}
+
+/* Style the cancel button */
+#cancelEdit {
+  background-color: #ccc;
+  color: #333;
+}
+
+#cancelEdit:hover {
+  background-color: #999;
+}
+</style>
+
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="logoheader">
+            <h1><img src="./img/logo.png" style="width:60px;height: 40px;border-radius: 10%;" alt=""></h1>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="recipeList.html">Recipe List</a>
+            <a href="recipeDetail.html">Recipe Detail</a>
+            <a href="edit.html">Add/Edit Recipe</a>
+            <a href="review.html">Reviews</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-bar" class="fas fa-bars"></div>
+        </div>
+
+    </header>
+
+
+
+    <h1 id="recipe">Recipe Details</h1>
+    <section class="recipe-details">
+        <div id="recipeDetails">
+            <p><strong>Recipe Title:</strong> <span id="displayRecipeTitle"></span></p>
+            <p><strong>Ingredients:</strong style="font-size:8px;"></p>
+            <ul id="displayIngredients"></ul>
+            <p><strong>Instructions:</strong></p>
+            <p id="displayInstructions"></p>
+            <img id="displayRecipeImage" src="" alt="Recipe Image">
+        </div>
+
+        <button id="editRecipe">Edit Recipe</button>
+        <button id="deleteRecipe">Delete Recipe</button>
+    </section>
+
+    <section class="edit-form" style="display: none;">
+        <h2>Edit Recipe</h2>
+        <form id="editRecipeForm">
+            <label for="editRecipeTitle">Recipe Title:</label>
+            <input type="text" id="editRecipeTitle" name="editRecipeTitle" required>
+            
+            <label for="editRecipeImage">Recipe Image:</label>
+            <input type="file" id="editRecipeImage" name="editRecipeImage" accept="image/*">
+            <img id="editRecipeImagePreview" src="" alt="Recipe Image Preview" style="display: none;">
+            
+            <label for="editIngredients">Ingredients:</label>
+            <ul id="editIngredients" contenteditable="true"></ul>
+            
+            <label for="editInstructions">Instructions:</label>
+            <textarea id="editInstructions" name="editInstructions" rows="6" required></textarea>
+            
+            <button type="submit" class="btn">Save Changes</button>
+            <button id="cancelEdit" type="button" class="btn">Cancel</button>
+        </form>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="recipeList.html">Recipe List</a></li>
+                        <li><a href="recipeDetail.html">Recipe Detaile</a></li>
+                        <li><a href="edit.html">Add/Edit Recipe</a></li>
+                        <li><a href="review.html">Reviews</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="#">Phone:+982153939</a></li>
+                        <li><a href="#">Phone:9843661038</a></li>
+                        <li><a href="#">Email:nimadrjtamang@gmail.com</a></li>
+                        <li><a href="#">Location:chabhil,Kathmandu</a></li>
+                      
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                     <a href="https://www.facebook.com/profile.php?id=100070128558037"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/lamapichchhu/"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href=""><i class="fab fa-viber"></i></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script>
+        // Retrieve the saved JSON data from local storage
+        const savedFormDataString = localStorage.getItem("recipeFormData");
+
+        if (savedFormDataString) {
+            const savedFormData = JSON.parse(savedFormDataString);
+
+            // Function to populate the edit form with saved data
+            function populateEditForm() {
+                document.getElementById("editRecipeTitle").value = savedFormData.recipeTitle;
+
+                if (savedFormData.recipeImage) {
+                    document.getElementById("editRecipeImagePreview").src = savedFormData.recipeImage;
+                    document.getElementById("editRecipeImagePreview").style.display = "block";
+                }
+
+                const editIngredientsList = document.getElementById("editIngredients");
+                savedFormData.ingredients.forEach(ingredient => {
+                    const li = document.createElement("li");
+                    li.textContent = ingredient;
+                    editIngredientsList.appendChild(li);
+                });
+
+                document.getElementById("editInstructions").value = savedFormData.instructions;
+            }
+
+            // Function to show the display section and hide the edit form section
+            function showDisplaySection() {
+                document.querySelector(".recipe-details").style.display = "block";
+                document.querySelector(".edit-form").style.display = "none";
+            }
+
+            // Function to delete the saved data
+            function deleteSavedData() {
+                localStorage.removeItem("recipeFormData");
+                alert("Recipe deleted.");
+                window.location.href = "index.html"; // Redirect to the index page
+            }
+
+            // Populate the display elements with the saved data
+            document.getElementById("displayRecipeTitle").textContent = savedFormData.recipeTitle;
+
+            const displayIngredientsList = document.getElementById("displayIngredients");
+            savedFormData.ingredients.forEach(ingredient => {
+                const li = document.createElement("li");
+                li.textContent = ingredient;
+                displayIngredientsList.appendChild(li);
+            });
+
+            document.getElementById("displayInstructions").textContent = savedFormData.instructions;
+
+            // Display the recipe image
+            document.getElementById("displayRecipeImage").src = savedFormData.recipeImage;
+
+            // Edit Recipe Function
+            document.getElementById("editRecipe").addEventListener("click", function () {
+                // Show the edit form and populate it with saved data
+                populateEditForm();
+                document.querySelector(".recipe-details").style.display = "none";
+                document.querySelector(".edit-form").style.display = "block";
+            });
+
+            // Cancel Edit Function
+            document.getElementById("cancelEdit").addEventListener("click", function () {
+                // Show the display section and hide the edit form section
+                showDisplaySection();
+            });
+
+            // Delete Recipe Function
+            document.getElementById("deleteRecipe").addEventListener("click", function () {
+                if (confirm("Are you sure you want to delete this recipe?")) {
+                    // Delete the saved data
+                    deleteSavedData();
+                }
+            });
+
+            // Update Image Preview
+            document.getElementById("editRecipeImage").addEventListener("change", function () {
+                const fileInput = this;
+                const imagePreview = document.getElementById("editRecipeImagePreview");
+
+                if (fileInput.files && fileInput.files[0]) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = "block";
+                    };
+
+                    reader.readAsDataURL(fileInput.files[0]);
+                } else {
+                    imagePreview.src = "";
+                    imagePreview.style.display = "none";
+                }
+            });
+
+            // Edit Recipe Form Submission
+            document.getElementById("editRecipeForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Retrieve updated form data
+                const updatedTitle = document.getElementById("editRecipeTitle").value;
+                const updatedIngredients = Array.from(document.getElementById("editIngredients").getElementsByTagName("li"))
+                    .map(li => li.textContent.trim());
+                const updatedInstructions = document.getElementById("editInstructions").value;
+
+                // Update the saved data
+                savedFormData.recipeTitle = updatedTitle;
+                savedFormData.ingredients = updatedIngredients;
+                savedFormData.instructions = updatedInstructions;
+
+                // Update the recipe image if a new one is selected
+                const newRecipeImage = document.getElementById("editRecipeImage").files[0];
+                if (newRecipeImage) {
+                    savedFormData.recipeImage = URL.createObjectURL(newRecipeImage);
+                }
+
+                // Store the updated data in local storage
+                localStorage.setItem("recipeFormData", JSON.stringify(savedFormData));
+
+                // Show the display section and hide the edit form section
+                showDisplaySection();
+
+                // Update the displayed details
+                document.getElementById("displayRecipeTitle").textContent = savedFormData.recipeTitle;
+
+                const displayIngredientsList = document.getElementById("displayIngredients");
+                displayIngredientsList.innerHTML = ""; // Clear the previous list
+                savedFormData.ingredients.forEach(ingredient => {
+                    const li = document.createElement("li");
+                    li.textContent = ingredient;
+                    displayIngredientsList.appendChild(li);
+                });
+
+                document.getElementById("displayInstructions").textContent = savedFormData.instructions;
+
+                // Update the displayed image
+                document.getElementById("displayRecipeImage").src = savedFormData.recipeImage;
+            });
+        } else {
+            // Handle the case when there's no saved data
+            alert("No recipe data found.");
+            window.location.href = "recipe.html"; // Redirect to the index page
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+ -->
+
+
+
+
+

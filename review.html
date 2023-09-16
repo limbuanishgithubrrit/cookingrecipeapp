@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<style>
+
+
+/*Review*/
+
+.review{
+margin: 120px 30px 30px 30px;
+width: 100%;
+height: 100vh;
+padding: 70px 0;
+
+}
+
+.review h1{
+font-size: 55px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.review h1 span{
+margin-left: 15px;
+color: #fac031;
+font-family: mv boli;
+}
+
+.review h1 span::after{
+content: '';
+width: 100%;
+height: 2px;
+background: #fac031;
+position: relative;
+bottom: 15px;
+display: block;
+}
+
+.review .review_box{
+width: 95%;
+margin: 70px auto;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+
+.review .review_box .review_card{
+width: 350px;
+height: 535px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+border-radius: 8px;
+padding: 8px 20px;
+margin: 0 8px;
+}
+
+.review .review_box .review_card .review_profile{
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_profile{
+transform: translateY(-60px);
+}
+
+.review .review_box .review_card .review_profile img{
+width: 180px;
+height: 180px;
+object-fit: cover;
+object-position: center;
+border-radius: 50%;
+border: 5px solid #cccccc;
+}
+
+.review .review_box .review_card .review_text{
+text-align: center;
+}
+
+.review .review_box .review_card .review_text .name{
+color: #000;
+transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .name{
+transform: translateY(-50px);
+}
+
+.review .review_box .review_card .review_text .review_icon{
+color: #fac031;
+transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .review_icon{
+transform: translateY(-30px);
+}
+
+.review .review_box .review_card .review_text .review_social i{
+margin: 5px 1px;
+font-size: 15px;
+opacity: 0;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text .review_social i{
+opacity: 1;
+transform: translateY(-8px);
+}
+
+.review .review_box .review_card .review_text p{
+text-align: center;
+line-height: 22px;
+transition: 0.3s;
+}
+
+.review .review_box .review_card:hover .review_text p{
+margin-top: 5px;
+}
+
+/* Media query for mobile devices with a maximum width of 768 pixels */
+@media screen and (max-width: 768px) {
+  .review_box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review_card {
+    margin-bottom: 20px; /* Add space between review cards */
+  }
+
+  .review_profile img {
+    max-width: 100%; /* Make profile images responsive */
+    border-radius: 50%; /* Make profile images circular */
+  }
+
+  .name {
+    font-size: 18px; /* Increase font size for names */
+  }
+
+  .review_icon {
+    font-size: 20px; /* Increase font size for star ratings */
+  }
+
+  p {
+    font-size: 16px; /* Increase font size for review text */
+  }
+
+  /* Add space between the content and the footer */
+  .review {
+    margin-bottom: 80px; /* Adjust this value as needed */
+  }
+
+  /* Footer styles */
+  .footer {
+    padding: 20px; /* Add padding to the footer for spacing */
+    text-align: center; /* Center-align the footer content */
+    background-color: #f0f0f0; /* Add a background color for better visibility */
+  }
+
+  .footer-col {
+    margin-bottom: 20px; /* Add space between footer columns */
+  }
+
+  .footer-col h4 {
+    font-size: 18px; /* Increase font size for column headings */
+  }
+
+  .footer-col ul {
+    list-style: none; /* Remove bullet points from list items */
+    padding: 0; /* Remove padding from the list */
+  }
+
+  .footer-col ul li {
+    margin-bottom: 10px; /* Add space between list items */
+  }
+
+  .social-links {
+    font-size: 24px; /* Increase font size for social icons */
+  }
+}
+
+
+</style>
+<body>
+    
+
+    <header class="header">
+
+        <div class="logoheader">
+            <h1><img src="./img/logo.png" style="width:60px;height: 40px;border-radius: 10%;" alt=""></h1>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="recipeList.html">Recipe List</a>
+            <a href="recipeDetail.html">Recipe Detail</a>
+            <a href="edit.html">Add/Edit Recipe</a>
+            <a href="review.html">Reviews</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-bar" class="fas fa-bars"></div>
+        </div>
+
+    </header>
+
+
+
+ <!--Review-->
+
+ <div class="review" id="Review">
+    <h1>Customer<span>Review</span></h1>
+
+    <div class="review_box">
+        <div class="review_card">
+
+            <div class="review_profile">
+                <img src="./img/raju.jpeg">
+            </div>
+
+            <div class="review_text">
+                <h2 class="name">RajuTamang</h2>
+
+                <div class="review_icon">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+
+                <!-- <div class="review_social">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div> -->
+
+                <p>
+                    This recipe is a game-changer! It's unbelievably quick to prepare and delivers a burst of incredible flavors. A true culinary gem for those seeking a swift, delightful meal. You won't want to miss out on this delicious experience – it's a must-try! 
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="review_card">
+
+            <div class="review_profile">
+                <img src="./img/sansang.jpeg">
+            </div>
+
+            <div class="review_text">
+                <h2 class="name">Sansang Limbu</h2>
+
+                <div class="review_icon">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+
+                <!-- <div class="review_social">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div> -->
+
+                <p>
+                    I can't rave enough about this recipe! It's a cinch to make and tastes absolutely fantastic. With minimal effort, you'll have a delightful dish that's sure to please. It's a go-to option for busy days when you want something quick and satisfying. Highly recommended!
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="review_card">
+
+            <div class="review_profile">
+                <img src="./img/anush.jpg">
+            </div>
+
+            <div class="review_text">
+                <h2 class="name">Anush Subbha</h2>
+
+                <div class="review_icon">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+
+                <!-- <div class="review_social">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div> -->
+
+                <p>
+                    This recipe is a culinary triumph! It's incredibly easy to follow, and the resulting flavors are simply divine. In a matter of minutes, you'll have a restaurant-quality dish that will leave you craving more. A must-try for anyone seeking effortless gourmet satisfaction!
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="review_card">
+
+            <div class="review_profile">
+                <img src="./img/chiring.jpeg">
+            </div>
+
+            <div class="review_text">
+                <h2 class="name">Chiring Tamang</h2>
+
+                <div class="review_icon">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+
+                <!-- <div class="review_social">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div> -->
+
+                <p>
+                    This recipe is a winner! It's a breeze to make, and the flavors are fantastic. In just a short time, you'll have a delicious meal that's sure to impress. It's a must-try for anyone looking for a quick and tasty dish.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+  
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="#">about us</a></li>
+                    <li><a href="#">our services</a></li>
+                    <li><a href="#">privacy policy</a></li>
+                    <li><a href="#">affiliate program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="recipeList.html">Recipe List</a></li>
+                    <li><a href="recipeDetail.html">Recipe Detaile</a></li>
+                    <li><a href="edit.html">Add/Edit Recipe</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact us</h4>
+                <ul>
+                    <li><a href="#">Phone:+982153939</a></li>
+                    <li><a href="#">Phone:9843661038</a></li>
+                    <li><a href="#">Email:nimadrjtamang@gmail.com</a></li>
+                    <li><a href="#">Location:chabhil,Kathmandu</a></li>
+                  
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100070128558037"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/lamapichchhu/"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href=""><i class="fab fa-viber"></i></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
